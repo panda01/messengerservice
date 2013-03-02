@@ -1,0 +1,45 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from_loc %><br />
+    <%= f.text_field :from_loc %>
+  </div>
+  <div class="field">
+    <%= f.label :to_loc %><br />
+    <%= f.text_field :to_loc %>
+  </div>
+  <div class="field">
+    <%= f.label :requested_time %><br />
+    <%= f.datetime_select :requested_time %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_area :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :package_type %><br />
+    <%= f.text_field :package_type %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

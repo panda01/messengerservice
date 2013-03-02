@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from_loc: 
+  to_loc: 
+  requested_time: 2013-02-21 21:17:01
+  desc: MyText
+  weight: 1
+  package_type: MyString
+  type: 
+
+two:
+  from_loc: 
+  to_loc: 
+  requested_time: 2013-02-21 21:17:01
+  desc: MyText
+  weight: 1
+  package_type: MyString
+  type: 

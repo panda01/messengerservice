@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CourrierServic3</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="cont-<%= controller_name + ' act-' + action_name %>">
+  <header>
+    <div class="container">
+      <h1><a href="/">Courrier Service</a></h1>
+      <div>
+        <% if session[:userid] %>
+          <div class="fleft">
+            Welcome <%= link_to(@current_user.name, @current_user) %>
+          </div>
+          <div class="fright">
+            <a href="/logout">Logout</a>
+          </div>
+        <% else %>
+          <div class="fleft">
+            <form action="/login" method="POST">
+              <div class="fleft">
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="fleft">
+                <input type="password" name="pass" placeholder="password" />
+              </div>
+              <div class="fleft">
+                <input class="btn" type="submit" value="Login">
+              </div>
+            </form>
+          </div>
+          <div class="fright">
+            <a href="/users/new">Signup</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </header>
+  <div id="main">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+    </div>
+  </footer>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBloH3cURER7UdBL2ie0QL8yOseR7Ypa2w&sensor=true" %>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

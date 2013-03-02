@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>From loc:</b>
+  <%= @order.from_loc %>
+</p>
+
+<p>
+  <b>To loc:</b>
+  <%= @order.to_loc %>
+</p>
+
+<p>
+  <b>Requested time:</b>
+  <%= @order.requested_time %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @order.desc %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @order.weight %>
+</p>
+
+<p>
+  <b>Package type:</b>
+  <%= @order.package_type %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @order.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
