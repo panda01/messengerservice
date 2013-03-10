@@ -19,6 +19,18 @@
 window.courserv_scripts = {
   giveFocusToFirstInput: function(){
     $('#main :text:first').focus();
+  },
+  giveMenuNavLinkActiveState: function() {
+  },
+  makeGLatLng: function(Lat, Lng) {
+    debugger;
+    !isNaN(Lat) || Lat = parseInt(Lat);
+    !isNaN(Lng) || Lng = parseInt(Lng);
+    return new google.maps.LatLng(Lat, Lng);
+  },
+  loadLatLngInMap: function(LatLng, map) {
+      map || map = window.courserv_scripts.locationMap;
+      map.setCenter(LatLng);
   }
 }
 $(document).ready(function()

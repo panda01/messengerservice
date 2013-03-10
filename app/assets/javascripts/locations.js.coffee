@@ -10,6 +10,8 @@ $(document).ready ->
   #   this will do for now, request here, request on client side to verify
   geocoder = new google.maps.Geocoder()
 
+  lastResults = []
+
   $in_street = $('#location_street_1')
   $in_street.autocomplete
     source: (req, res)->
@@ -17,13 +19,17 @@ $(document).ready ->
         address: req.term
         , (results, status)->
           if status is google.maps.GeocoderStatus.OK
+            lastResults = results
             res $.map results, (item, idx)->
               label: item.formatted_address, value: item.formatted_address, idx: idx
           else
             console.log 'somethiing went terribly, terribly wrong'
+    select: (evt, ui)->
+      result = lastResults[ui.item.idx]
+      window.courserv_scripts.loadLatLngInMap(result.geometry.location)
+      true
 
-  autocomplete = $in_street.data 'autocomplete'
-  console.log autocomplete.menu
+
 
   $in_street.on 'keyup', (evt)->
     keyCode = evt.which
@@ -31,7 +37,7 @@ $(document).ready ->
       console.log ''
     else if keyCode is 38 # UP
       console.log ''
-    console.log autocomplete.menu.activeMenu.
-    console.log autocomplete.menu.activeMenu.data 'menu'
+    else if keyCode is 13 # ENTER
+      console.log 'enter pressed!'
 
     console.log evt.which

@@ -1,6 +1,6 @@
 $(document).ready ->
   defaultMapOptions =
-    center: new google.maps.LatLng 40.7142, 74.0064
+    center: new google.maps.LatLng(40.7142, -74.0064)
     zoom: 8
     mapTypeId: google.maps.MapTypeId.ROADMAP
 
